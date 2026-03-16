@@ -1,5 +1,5 @@
 public class Main {
-    final int GLOBAL_CAPACITY = 1;
+    static final int GLOBAL_CAPACITY = 1;
 
     public static void main(String[] args) {
 

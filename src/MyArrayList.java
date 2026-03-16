@@ -25,33 +25,67 @@ public class MyArrayList<T> {
         size++;
     }
     public void add(int index, T valor){
-        data[index] = valor;
-        size++;
-    };
+        if (isIndexValidForAdd(index)) {
+            if (isArrayFull()) {
+                increaseArray();
+            }
+
+            for (int i = this.size; i >= (index + 1) ; i--) {
+                data[i] = data[i-1];
+            }
+
+            data[index] = valor;
+            size++;
+        } else {
+            System.out.println("Índice inválido");
+        }
+    }
     public void remove(int index){
 
-    };
+    }
     public void remove(T o){
 
-    };
-    public void set(int index, T e){
-
-    };
+    }
+    public void set(int index, T valor){
+        data[index] = valor;
+        size++;
+    }
     public T get(int index){
         return data[index];
-    };
+    }
     public void contains(T o){
 
-    };
+    }
     public void indexOf(T o){
 
-    };
+    }
     public void toArray(){
 
-    };
+    }
 
     // Support Methods
     public boolean isArrayFull(){
         return (size == capacity);
+    }
+
+    public boolean isIndexValidForAdd(int index) {
+        return (index >= 0 && index <= this.size);
+    }
+
+    public boolean isIndexValid(int index) {
+        return (index >= 0 && index < this.size);
+    }
+
+    public void increaseArray() {
+        int newCapacity = capacity + (capacity/2);
+
+        T[] newArray = (T[]) new Object[newCapacity];
+
+        for (int i = 0; i < this.size; i++) {
+            newArray[i] = data[i];
+        }
+
+        this.data = newArray;
+        this.capacity = newCapacity;
     }
 }
