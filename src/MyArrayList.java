@@ -40,10 +40,17 @@ public class MyArrayList<T> {
             System.out.println("Índice inválido");
         }
     }
-    public void remove(int index){
+    public void remove(T valor){
+        int index = indexOf(valor);
 
+        if (index == -1) {
+            System.out.println("Valor inexistente no array");
+        }
+
+        data[index] = null;
+        size--;
     }
-    public void remove(T o){
+    public void remove(int index){
 
     }
     public void set(int index, T valor){
@@ -53,11 +60,18 @@ public class MyArrayList<T> {
     public T get(int index){
         return data[index];
     }
-    public void contains(T o){
+    public void contains(T valor){
 
     }
-    public void indexOf(T o){
-
+    public int indexOf(T valor) {
+        for (int i = 0; i < this.size; i++) {
+            if (data[i] == null && valor == null) {
+                return i;
+            } else if (data[i] != null && data[i].equals(valor)) {
+                return i;
+            }
+        }
+        return -1;
     }
     public void toArray(){
 
