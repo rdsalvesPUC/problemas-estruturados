@@ -46,7 +46,7 @@ public class MyArrayList<T> {
         int index = indexOf(valor);
 
         if (index == -1) {
-            throw new IndexOutOfBoundsException("Valor inexistente no array");
+            return;
         }
 
         remove(index);
@@ -65,7 +65,7 @@ public class MyArrayList<T> {
     }
     public void set(int index, T valor){
         if (!isIndexValid(index)) {
-            System.out.println("Índice inválido");
+            throw new IndexOutOfBoundsException("Índice inválido");
         }
 
         data[index] = valor;
