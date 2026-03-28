@@ -47,7 +47,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    void deveInserirNoMeioEDeslocar() {
+    void deveInserirNoMeioEDeslocar()   {
         MyArrayList<Integer> list = new MyArrayList<>();
 
         list.add(10);
